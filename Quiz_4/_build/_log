@@ -1,0 +1,13 @@
+### Starting build.
+# Target: for.ml.depends, tags: { extension:ml, file:for.ml, ocaml, ocamldep, quiet }
+ocamldep.opt -modules for.ml > for.ml.depends
+# Target: for.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:for.cmo, file:for.ml, implem, ocaml, quiet }
+ocamlc.opt -c -o for.cmo for.ml
++ ocamlc.opt -c -o for.cmo for.ml
+File "for.ml", line 3, characters 8-19:
+3 | let rec read_number () : int = 
+            ^^^^^^^^^^^
+Warning 26: unused variable read_number.
+# Target: for.byte, tags: { byte, dont_link_with, extension:byte, file:for.byte, link, ocaml, program, quiet }
+ocamlc.opt for.cmo -o for.byte
+# Compilation successful.
